@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import domain.Covid19Pacient;
+import observer.Covid19Pacient;
 import domain.Symptom;
 
 import javax.swing.JLabel;
@@ -38,7 +38,7 @@ public class PacientSymptomGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblSelectSymptom = new JLabel("Select Symptom");
-		lblSelectSymptom.setBounds(32, 68, 100, 16);
+		lblSelectSymptom.setBounds(32, 68, 100, 16); 
 		contentPane.add(lblSelectSymptom);
 		
 		symptomComboBox = new JComboBox<Symptom>();
@@ -59,7 +59,7 @@ public class PacientSymptomGUI extends JFrame {
 		symptomComboBox.addItem(new Symptom("diarrea",100,1));
 		symptomComboBox.addItem(new Symptom("hemoptisis",100,1));
 		symptomComboBox.addItem(new Symptom("congestión conjuntival",100,1));
-		
+		System.out.println(p.getSymptoms());
 		
 		contentPane.add(symptomComboBox);
 		
@@ -76,14 +76,17 @@ public class PacientSymptomGUI extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				errorLabel.setText(" ");
+				
 				if (new Integer(weightField.getText())<=3) {
 		    	System.out.println("Symptom added :"+(Symptom)symptomComboBox.getSelectedItem());
 
 				//addSymptomByName ...
+		    	p.addSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName(),  Integer.parseInt(weightField.getText())); 
 				
 			} else errorLabel.setText("ERROR, Weight between [1..3]");
 				
 			}
+			
 		});
 		btnNewButton.setBounds(88, 202, 117, 29);
 		contentPane.add(btnNewButton);
@@ -92,10 +95,11 @@ public class PacientSymptomGUI extends JFrame {
 		btnRemoveSymptom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				errorLabel.setText(" ");
-
+				
 		    	System.out.println("Symptom removed :"+(Symptom)symptomComboBox.getSelectedItem());
 
 				//removeSymptomByName...
+		    	p.removeSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName()); 
 				
 			} 
 		});

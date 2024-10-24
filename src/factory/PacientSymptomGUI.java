@@ -25,7 +25,7 @@ public class PacientSymptomGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField weightField;
 	private JButton btnRemoveSymptom;
-	private JLabel errorLabel;
+	private JLabel errorLabel; 
 	private JLabel lblPacient;
 	private JLabel labelPacient;
 	private JTextField symptonNameField;
