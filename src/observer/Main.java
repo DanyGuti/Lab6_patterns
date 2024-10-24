@@ -22,6 +22,4 @@ public class Main {
 		new PacientThermometerGUI (pacient1);
 		new PacientThermometerGUI (pacient);
 	}
-
-
 } 

@@ -42,7 +42,6 @@ public class Covid19Pacient extends Observable{
 	}
 
 	public Set<Symptom> getSymptoms() {
-		System.out.println(symptoms.keySet());
 		return symptoms.keySet();
 	}
 	
@@ -88,6 +87,8 @@ public class Covid19Pacient extends Observable{
 	
 	public double covidImpact() {
 		ICovid19Calculator covidCalculator = new Covid19Calculator();
+//		setChanged();
+//		notifyObservers();
 		return covidCalculator.covidImpact(symptoms, age);
 	}
 }

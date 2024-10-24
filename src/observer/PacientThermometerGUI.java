@@ -29,12 +29,12 @@ public class PacientThermometerGUI extends Frame implements Observer{
 		setLocation(0, 100);
 		setVisible(true);
 		this.obs = obs;
+		obs.addObserver(this);
 	}
 	public void update(Observable o, Object args) { 
 		Covid19Pacient p=(Covid19Pacient)o; 
 		// Obtain the  current covidImpact to paint 
 		int farenheit = (int) p.covidImpact(); 
-		System.out.println(farenheit);
 		// temperature gauge update 
 		gauges.set(farenheit); 
 		gauges.repaint(); 
