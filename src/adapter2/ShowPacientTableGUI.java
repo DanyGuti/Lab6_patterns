@@ -2,6 +2,8 @@ package adapter2;
 
 import java.awt.Component;
 import java.awt.Font;
+import java.util.Observer;
+import java.util.Observable;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
@@ -9,13 +11,14 @@ import javax.swing.table.TableModel;
 import domain.Covid19Pacient;
 
 
-public class ShowPacientTableGUI extends JFrame{
+public class ShowPacientTableGUI extends JFrame {
 	
 	JTable table;
 	Covid19Pacient pacient;
+	private Observable obs;
 	
   
-  public ShowPacientTableGUI(Covid19Pacient pacient ) {
+  public ShowPacientTableGUI(Covid19Pacient pacient) {
 	  	this.setTitle("Covid Symptoms "+pacient.getName());
 	  	
 	  	this.pacient=pacient;
@@ -29,8 +32,6 @@ public class ShowPacientTableGUI extends JFrame{
 	    pane.setPreferredSize(
 	      new java.awt.Dimension(300, 200));
 	    this.getContentPane().add(pane);
-	    
-	  
   }
 
   private static void setFonts() {

@@ -39,7 +39,7 @@ public class Covid19PacientModelAdapter extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-       switch(columnIndex) {
+       switch (columnIndex) {
             case 0: return ((Object) symptoms.get(rowIndex));
             case 1: return ((Object) pacient.getWeight(symptoms.get(rowIndex)));
             	
